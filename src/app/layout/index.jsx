@@ -1,8 +1,9 @@
 import React from "react";
-import {Outlet} from "react-router-dom";
 import AppHeader from "../header";
 import {FlexColumnDiv, FlexRowDiv} from "../../shared/components/FlexDiv";
 import AppSidebar from "../sidebar";
+import AppFooter from "../footer";
+import {StyledOutlet} from "./styles";
 
 export default function Layout() {
     return (
@@ -13,11 +14,12 @@ export default function Layout() {
                     <FlexRowDiv>
                         <AppSidebar/>
                         <FlexColumnDiv>
-                            <Outlet/>
+                            <StyledOutlet/>
                         </FlexColumnDiv>
                     </FlexRowDiv>
                 </FlexColumnDiv>
             </FlexRowDiv>
+            <AppFooter />
         </>
     );
 }
