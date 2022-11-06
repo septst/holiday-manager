@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import AppHeader from "./app/header";
+import AppSidebar from "./app/sidebar";
+import Main from "./app/main";
+import {FlexColumnDiv, FlexRowDiv} from "./shared/styled-components/FlexDiv";
+import {BrowserRouter, Outlet, Route, Routes} from "react-router-dom";
+import {AppRoutes} from "./app/routing";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <React.StrictMode>
+            <div className="App">
+                <BrowserRouter>
+                    <Routes>
+                        {
+                            AppRoutes.map(createRoutes)
+                        }
+                    </Routes>
+                </BrowserRouter>
+                <AppHeader/>
+                <FlexRowDiv>
+                    <AppSidebar/>
+                    <FlexColumnDiv>
+                        <Outlet />
+                    </FlexColumnDiv>
+                </FlexRowDiv>
+            </div>
+        </React.StrictMode>
+    );
+}
+
+function createRoutes(route, index) {
+    return <Route key={index} path={route.path} element={route.routeTo()}/>;
 }
 
 export default App;
