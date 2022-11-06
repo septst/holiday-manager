@@ -1,5 +1,5 @@
 import React from "react";
-import {FlexRowDiv} from "../../shared/styled-components/FlexDiv";
+import {FlexRowDiv} from "../../shared/components/FlexDiv";
 
 export default function Dashboard() {
     return(

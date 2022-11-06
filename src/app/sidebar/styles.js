@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {FlexColumnDiv, FlexDiv, FlexRowDiv} from "../../shared/styled-components/FlexDiv";
-import {StyledLink} from "../../shared/styled-components/StyledLink";
+import {FlexColumnDiv, FlexDiv} from "../../shared/components/FlexDiv";
+import {StyledLink} from "../../shared/components/StyledLink";
 
 export const SideBarShell = styled(FlexColumnDiv)`
   padding: 0.5vw 1vh;

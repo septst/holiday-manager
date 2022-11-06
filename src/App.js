@@ -1,28 +1,25 @@
 import React from "react";
 import './App.css';
-import AppHeader from "./app/header";
-import AppSidebar from "./app/sidebar";
-import Main from "./app/main";
-import {FlexColumnDiv, FlexDiv, FlexRowDiv} from "./shared/styled-components/FlexDiv";
-import {BrowserRouter, createBrowserRouter, Outlet, Route, RouterProvider, Routes} from "react-router-dom";
-import Root from "./app/root";
+import {FlexDiv} from "./shared/components/FlexDiv";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import PageNotFound from "./app/error/page-not-found";
 import Dashboard from "./app/dashboard";
 import Tracker from "./app/tracker";
+import Layout from "./app/layout";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Root/>,
+        element: <Layout/>,
         errorElement: <PageNotFound/>,
-        children:[
+        children: [
             {
-                path:"dashboard",
-                element: <Dashboard />
+                path: "dashboard",
+                element: <Dashboard/>
             },
             {
-                path:"tracker",
-                element: <Tracker />
+                path: "tracker",
+                element: <Tracker/>
             }
         ]
     }
@@ -32,12 +29,7 @@ function App() {
     return (
         <React.StrictMode>
             <FlexDiv className="App">
-                <AppHeader/>
-                <FlexRowDiv>
-                    <FlexColumnDiv>
-                        <RouterProvider router={router}/>
-                    </FlexColumnDiv>
-                </FlexRowDiv>
+                <RouterProvider router={router}/>
             </FlexDiv>
         </React.StrictMode>
     );

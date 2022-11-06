@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import {SideBarLink, SideBarList, SideBarListItem, SideBarShell} from "./styles";
 
 export default class AppSideBar extends React.Component {

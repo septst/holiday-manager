@@ -1,6 +1,6 @@
 import React from "react";
 import {useRouteError} from "react-router-dom";
-import {FlexDiv} from "../../../shared/styled-components/FlexDiv";
+import {FlexDiv} from "../../../shared/components/FlexDiv";
 
 export default function PageNotFound() {
     const error = useRouteError();
