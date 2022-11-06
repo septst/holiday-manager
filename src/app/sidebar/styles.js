@@ -1,15 +1,26 @@
 import styled from "styled-components";
-import {FlexColumnDiv} from "../../shared/styled-components/FlexDiv";
+import {FlexColumnDiv, FlexDiv, FlexRowDiv} from "../../shared/styled-components/FlexDiv";
+import {StyledLink} from "../../shared/styled-components/StyledLink";
 
 export const SideBarShell = styled(FlexColumnDiv)`
-  padding: 1vw 1vh;
+  padding: 0.5vw 1vh;
   color: inherit;
   width: 10vw;
 `;
 
-export const SideBarList = styled.ul`
-  list-style-type: none;
-  border: 1px solid white;
+export const SideBarList = styled(FlexColumnDiv)`
+  font-weight: bold;
+  font-size: 1em;
 `;
 
-export const SideBarListItem = styled.li``;
+export const SideBarListItem = styled(FlexDiv)`
+  border: 1px solid white;
+  color: white !important;
+  margin: 0.25vh 0vw;
+  padding: 1vh 1vw;
+`;
+
+export const SideBarLink = styled(StyledLink)`
+  color:white;
+  font-size: 1em;
+`;

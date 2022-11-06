@@ -3,35 +3,44 @@ import './App.css';
 import AppHeader from "./app/header";
 import AppSidebar from "./app/sidebar";
 import Main from "./app/main";
-import {FlexColumnDiv, FlexRowDiv} from "./shared/styled-components/FlexDiv";
-import {BrowserRouter, Outlet, Route, Routes} from "react-router-dom";
-import {AppRoutes} from "./app/routing";
+import {FlexColumnDiv, FlexDiv, FlexRowDiv} from "./shared/styled-components/FlexDiv";
+import {BrowserRouter, createBrowserRouter, Outlet, Route, RouterProvider, Routes} from "react-router-dom";
+import Root from "./app/root";
+import PageNotFound from "./app/error/page-not-found";
+import Dashboard from "./app/dashboard";
+import Tracker from "./app/tracker";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Root/>,
+        errorElement: <PageNotFound/>,
+        children:[
+            {
+                path:"dashboard",
+                element: <Dashboard />
+            },
+            {
+                path:"tracker",
+                element: <Tracker />
+            }
+        ]
+    }
+]);
 
 function App() {
     return (
         <React.StrictMode>
-            <div className="App">
-                <BrowserRouter>
-                    <Routes>
-                        {
-                            AppRoutes.map(createRoutes)
-                        }
-                    </Routes>
-                </BrowserRouter>
+            <FlexDiv className="App">
                 <AppHeader/>
                 <FlexRowDiv>
-                    <AppSidebar/>
                     <FlexColumnDiv>
-                        <Outlet />
+                        <RouterProvider router={router}/>
                     </FlexColumnDiv>
                 </FlexRowDiv>
-            </div>
+            </FlexDiv>
         </React.StrictMode>
     );
-}
-
-function createRoutes(route, index) {
-    return <Route key={index} path={route.path} element={route.routeTo()}/>;
 }
 
 export default App;

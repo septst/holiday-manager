@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {SideBarList, SideBarListItem, SideBarShell} from "./styles";
+import {SideBarLink, SideBarList, SideBarListItem, SideBarShell} from "./styles";
 
 export default class AppSideBar extends React.Component {
 
@@ -10,7 +10,10 @@ export default class AppSideBar extends React.Component {
                 <SideBarShell bgColour="orange" marginTop="1vh">
                     <SideBarList>
                         <SideBarListItem>
-                            {/*<Link to="/">Dashboard</Link>*/}
+                            <SideBarLink to="dashboard">Dashboard</SideBarLink>
+                        </SideBarListItem>
+                        <SideBarListItem>
+                            <SideBarLink to="tracker">Tracker</SideBarLink>
                         </SideBarListItem>
                     </SideBarList>
                 </SideBarShell>
