@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {FlexDiv, FlexRowDiv} from "../../shared/components/FlexDiv";
+import {FlexRowDiv} from "../../shared/components/FlexDiv";
 
 export const FooterDiv = styled(FlexRowDiv)`
   background-color: orange;
@@ -8,4 +8,8 @@ export const FooterDiv = styled(FlexRowDiv)`
   padding: 1vh;
   height: 3vh;
   vertical-align: center;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
 `;
