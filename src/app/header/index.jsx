@@ -6,7 +6,7 @@ export default function AppHeader() {
     return (
         <>
             <AppHeaderBar>
-                <StyledLink>Holiday Manager</StyledLink>
+                <StyledLink to="/">Holiday Manager</StyledLink>
             </AppHeaderBar>
         </>
     );
